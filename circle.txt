@@ -1,0 +1,12 @@
+<html>
+	<body>
+    	<script>
+            radius = parseInt(prompt("Enter the value of the radius in cm", ""));
+            area = radius * radius * Math.PI;
+            circumference = 2 * radius * Math.PI;
+            document.write("The radius is ", radius, " cm", "<br>");
+            document.write("The area of the circle is ", area, " cm²", "<br>");
+            document.write("The circumference of the circle is ", circumference, " cm");
+        </script>
+    </body>
+</html>
