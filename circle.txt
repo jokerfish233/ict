@@ -1,5 +1,5 @@
 <html>
-	<body>
+    <body>
     	<script>
             radius = parseInt(prompt("Enter the value of the radius in cm", ""));
             area = radius * radius * Math.PI;
