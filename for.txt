@@ -3,7 +3,7 @@
     	<script>
 		sn = parseInt(prompt("Starting Number is?",""))
 		en = parseInt(prompt("Ending Number is?",""))
-		cd = parseInt(prompt("Common Differenceis?",""))
+		cd = parseInt(prompt("Common Difference is?",""))
 		for (i=sn; i<=en; i=i+cd) {
 			document.write(i,"<br>")
 		}
