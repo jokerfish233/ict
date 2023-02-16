@@ -4,9 +4,11 @@
             const myArray = [];
             sum = 0;
             e = parseInt(prompt("number of elements? (must be >=5)",""));
-            document.write("輸入完成","<br>");
             for (i=1; i<=e; i++) {
                 myArray[i] = parseInt(prompt("Input a number:",""));
+            }
+            document.write("輸入完成","<br>");
+            for (i=1; i<=e; i++) {
                 document.write("myArray[",i,"] = ",myArray[i],"<br>");
                 sum += myArray[i];
             }
