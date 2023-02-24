@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            num = parseInt(prompt("每行有多少顆星?",""));
+            row = parseInt(prompt("有多少橫列?",""));
+            for (i=1; i<=row; i++) {
+                if (i%2!=0) {
+                    document.write("&emsp;");
+                }
+                for (t=1; t<=num; t++) {
+                    document.write(" ＊ ");
+                }
+                document.write("<br>");
+            }
+        </script>
+    </body>
+</html>
