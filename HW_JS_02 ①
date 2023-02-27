@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+        document.write("<font color = #FFC0CB>");
+		for (i=5; i>=1; i--) {
+        	for (t=i; t>=1; t--) {
+            		document.write("＊");
+            }
+            document.write("<br>");
+        }
+        </script>
+    </body>
+</html>
