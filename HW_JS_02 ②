@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+        for (a=1; a<=3; a++) {
+        	document.write("<font color = #FFB6C1>");
+			for (i=1; i<=6; i++) {
+        		for (t=1; t<=i; t++) {
+            		document.write("＊");
+            	}
+            	document.write("<br>");
+        	}
+        }
+        </script>
+    </body>
+</html>
