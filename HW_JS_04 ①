@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+a = parseInt(Math.random() * 5) + 1;
+r = parseInt(prompt("Your guess?", ""));
+document.write("Your guess: ",r,"<br>");
+if (r==a) {
+	document.write("Bingo!!!<br>");
+} else {
+	document.write("Oops! The correct answer is: ",a,"<br>");
+}
+</script>
+</body>
+</html> 
