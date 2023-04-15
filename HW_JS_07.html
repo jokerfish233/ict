@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //初始化各種字句
+            const line = [,"你太聰明了！","太厲害了吧！","恭喜！","哎呀！","怎麼會這樣？！"]
+
+            //初始化秘密號碼值
+            target = parseInt(Math.random()*10)+1;
+
+            alert("歡迎遊玩估數字遊戲，每回合有三次機會，請估由1至10的數值");
+            alert("此遊戲有提示功能，在輸入'689'可以得到答案");
+
+            //初始化條件值
+            round = 1;
+            win_time = 0;
+
+            //第1回合開始
+            for (time=-1; time<=3; time++) {
+                if (time == -1) {
+                    document.write("Round ",round,"<br>");
+                    time = 1;
+                }
+                
+                //輸入數值
+                trial = parseInt(prompt("請輸入數值",""));
+                                
+                //檢測數值是否在範圍內
+                while ((trial > 10) || (trial < 1)) {
+                    if (trial == 689) {
+                        time--;
+                        break;
+                    }
+                    alert("數值過小或過大，請重新輸入");
+                    trial = parseInt(prompt("請輸入數值",""));
+                }
+                
+                //提示功能
+                if (trial == 689) {
+                    alert("答案為"+target);
+                }
+                    
+                if (trial != 689) {
+                    document.write("數值",time,"為",trial,"<br>");
+                }
+                
+                //成功估到數值
+                if (trial == target) {
+                    win_time++;
+
+                    //宣布結果
+                    alert(line[time]+"你已成功估到神秘號碼！！");
+                    document.write("WIN<br>");
+
+                    //詢問是否想重新遊玩
+                    again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+
+                    //檢測數值是否在範圍內
+                    while ((again > 2) || (again < 1)) {
+                        alert("數值過小或過大，請重新輸入");
+                        again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+                    }
+                    
+                    //退出此回合
+                    break;
+                }
+            }
+
+            //回合結束但沒有估到數值
+            if (time > 3) {
+                //宣布結果
+                time--;
+                temp = Math.floor(Math.random()*2)+4;
+                alert(line[temp]+"第"+round+"回合結束，閣下未能估到神秘號碼:'"+target+"'，再接再厲！！");
+                document.write("LOSE<br>");
+
+                //詢問是否想重新遊玩
+                again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+
+                //檢測數值是否在範圍內
+                while ((again > 2) || (again < 1)) {
+                    alert("數值過小或過大，請重新輸入");
+                    again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+                }
+            }
+
+            //重新遊玩
+            while (again == 1) {
+                //初始化秘密答案值
+                target = parseInt(Math.random()*10)+1;
+
+                document.write("&emsp;<br>");
+                round++;
+
+                //回合開始
+                for (time=-1; time<=3; time++) {
+                    if (time == -1) {
+                        document.write("Round ",round,"<br>");
+                        time = 1;
+                    }
+                    
+                    //輸入數值
+                    trial = parseInt(prompt("請輸入數值",""));
+                                    
+                    //檢測數值是否在範圍內
+                    while ((trial > 10) || (trial < 1)) {
+                        if (trial == 689) {
+                            time--;
+                            break;
+                        }
+                        alert("數值過小或過大，請重新輸入");
+                        trial = parseInt(prompt("請輸入數值",""));
+                    }
+
+                    //提示功能
+                    if (trial == 689) {
+                        alert("答案為"+target);
+                    }
+                    
+                    if (trial != 689) {
+                        document.write("數值",time,"為",trial,"<br>");
+                    }
+                    
+                    
+                    //成功估到數值
+                    if (trial == target) {
+                        win_time++;
+
+                        //宣布結果
+                        alert(line[time]+"你已成功估到神秘號碼！！");
+                        document.write("WIN<br>");
+
+                        //終極大獎
+                        if (win_time == 5) {
+                            alert("你已在估數字遊戲中勝出5次！恭喜！恭喜！");
+                            alert("⠀⠀⠀⣀⣿⣆⣀⠀⠀⠀⠀⠀⣀⣷⣶⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⣿⡇⢺⣿⣤⣤⣤⣤⣤⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢤⣤⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⢸⣿⠉⠁⠈⢹⣯⣿⡏⢹⣿⠉⠁⢸⣿⣷⡇⠀⠀⠀⠀⠀⠀⠀⣿⡞⠉⠉⣷⡆⠀⠀⠀⠀⠀⠀⠀⠀\n⣤⣼⠿⠀⠀⢠⣤⠀⠀⠀⠀⠀⠀⣤⣤⠀⣿⣧⣤⣤⣤⣤⡄⠀⠀⠿⢧⣤⣤⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀\n⣿⣿⠀⠀⣎⣻⠉⠀⣀⣼⣾⣠⡀⠉⣭⣹⡉⣿⡯⡉⣿⡏⢹⣾⣀⣀⣸⣿⣉⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀\n⣿⣿⠀⠀⠈⠀⠀⠈⠛⠟⠘⠛⠓⠀⠀⠀⠀⠛⠃⠀⠛⠃⠀⠘⠛⣿⡟⢻⣿⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀\n⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⣸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⣿⣿⢤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⣿⣿⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠛⢻⣾⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣤⣿⡟⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠈⠉⣿⣿⡇⢀⣀⣀⡀⣸⣿⣀⣀⣀⣀⣿⡇⣼⣿⣿⡇⣸⣿⣿⡏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⣿⣧⣾⠟⠛⢣⣼⣿⡛⠛⠛⠛⣿⣷⣾⠛⠛⣧⣾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠉⠉⠉⠀⠀⠈⠉⠉⠁⠀⠀⠀⠉⠉⠉⠀⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
+                        }
+    
+                        //詢問是否想重新遊玩
+                        again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+    
+                        //檢測數值是否在範圍內
+                        while ((again > 2) || (again < 1)) {
+                            alert("數值過小或過大，請重新輸入");
+                            again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+                        }
+                        
+                        //退出此回合
+                        break;
+                    }
+                }
+
+                //回合結束但沒有估到數值
+                if (time > 3) {
+                    //宣布結果
+                    temp = Math.floor(Math.random()*2)+4;
+                    alert(line[temp]+"第"+round+"回合結束，閣下未能估到神秘號碼:'"+target+"'，再接再厲！！");
+                    document.write("LOSE<br>");
+    
+                    //詢問是否想重新遊玩
+                    again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+    
+                    //檢測數值是否在範圍內
+                    while ((again > 2) || (again < 1)) {
+                        alert("數值過小或過大，請重新輸入");
+                        again = parseInt(prompt("你想再次遊玩嗎？ ('想'請輸入1、'不想'請輸入2)",""));
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
